@@ -1,9 +1,29 @@
 package recursionOnStrings;
+/*
+ * Return all codes - String
+
+Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to return the list of all possible codes that can be generated from the given string.
+Note : The order of codes are not important. And input string does not contain 0s.
+Input format :
+A numeric string
+Constraints :
+1 <= Length of String S <= 10
+Sample Input:
+1123
+Sample Output:
+aabc
+kbc
+alc
+aaw
+kw
+
+ */
+
 
 public class ReturnAllCodes {
 
 	public static void main(String[] args) {
-		String s = "123";
+		String s = "12345";
 		String ans[] = returnAllCodes(s);
 		for(String i : ans) {
 			System.out.println(i);
@@ -41,5 +61,4 @@ public class ReturnAllCodes {
 		}
 		return output;
 	}
-
 }

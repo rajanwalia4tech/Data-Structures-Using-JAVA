@@ -14,7 +14,8 @@ public class PrintMiddleElement {
 		if(head==null)
 			return ;
 		Node slow = head;
-		Node fast = head;
+		//Node fast = head; // find the right mid in even no. of nodes
+		Node fast = head.next; // find the left mid in even no. of nodes
 		//Move the fast point by 2 position ahead and 
 	   // Move the slow pointer by 1 position ahead
 		while( fast!=null && fast.next!=null) {
@@ -26,6 +27,7 @@ public class PrintMiddleElement {
 	
 	public static void main(String[] args) {
 		Node head = null;
+		head = insertBegin(head,70);
 		head = insertBegin(head,60);
 		head = insertBegin(head,50);
 		head = insertBegin(head,40);
