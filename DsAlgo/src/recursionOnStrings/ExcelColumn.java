@@ -19,8 +19,6 @@ public class ExcelColumn {
 		String columnId = getColumnId(n);
 		System.out.println(columnId);
 	}
-	
-	
 
 	private static String getColumnId(int n) {
 		if(n<=26) {
@@ -31,12 +29,9 @@ public class ExcelColumn {
 		return ans+smallAns;
 	}
 
-
-
 	private static char singleDigitcolumn(int n) {
 		String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		
 		return s.charAt(n-1);
 	}
-
 }
