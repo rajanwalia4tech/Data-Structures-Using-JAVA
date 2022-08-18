@@ -10,6 +10,7 @@ public class BST {
 		insert(root,200);
 		insert(root,25);
 		insert(root,75);
+		insert(root,22);
 		printPreorder(root);
 		System.out.println();
 		delete(root,150);
