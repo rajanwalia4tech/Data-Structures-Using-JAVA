@@ -63,6 +63,39 @@ public class AdjacencyListImplementationWithConnectedComponents {
         }
     }
 
+    static void dfs(ArrayList<Edge> graph[], int curr, boolean visited[]){
+        /*
+         1. Print the current vertex
+         2. Mark the current vertex as Visited
+         3. Recursively call for the neighbours
+         */
+        if(visited[curr])
+            return;
+
+        System.out.print(curr + " ");
+        visited[curr] = true;
+        for(Edge e : graph[curr]){
+            if(visited[e.dest] == false)
+                dfs(graph, e.dest, visited);
+        }
+    }
+
+    static void printAllPathsFromSourceToDestination(ArrayList<Edge> graph[],int source,int target,boolean[] visited,String path){
+        if(source == target){
+            path = path +"->"+ source;
+            System.out.println(path);
+            return;
+        }
+
+        for(Edge e : graph[source]){
+            if(visited[e.dest] == false){
+                visited[source] = true;
+                printAllPathsFromSourceToDestination(graph, e.dest, target, visited, path +"->"+ source);
+                visited[source] = false;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         /*
             1 --- 3
@@ -86,19 +119,13 @@ public class AdjacencyListImplementationWithConnectedComponents {
         dfs(graph, 0, visited);
         System.out.println();
         System.out.println("---------- DFS COMPLETED ------------");
-    }
 
-
-    static void dfs(ArrayList<Edge> graph[], int curr, boolean visited[]){
-        if(visited[curr])
-            return;
-
-        System.out.print(curr + " ");
-        visited[curr] = true;
-        for(Edge e : graph[curr]){
-            if(visited[e.dest] == false)
-                dfs(graph, e.dest, visited);
-        }
+        visited = new boolean[v];
+        System.out.println("---------- PRINT ALL PATH STARTED ------------");
+        printAllPathsFromSourceToDestination(graph, 0, 5, visited, "");
+        System.out.println();
+        System.out.println("---------- PRINT ALL PATH COMPLETED ------------");
+        
     }
 
 }
